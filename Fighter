@@ -1,0 +1,68 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerController : MonoBehaviour {
+    public Animator myAnim;
+	public bool Jumping = false;
+	public bool isGrounded = true;
+	public bool canAttack = true;
+	public bool canMove = true;
+	public bool isBlocking = false;
+	public bool Crouching = false;
+
+    // Use this for initialization
+    void Start() {
+        myAnim = GetComponent<Animator>();
+
+    }
+   
+
+    // Update is called once per frame
+    void Update() {
+		myAnim.SetFloat ("HSpeed", Input.GetAxis ("Horizontal"));
+		if (Input.GetKey (KeyCode.RightArrow)&& canMove==true) {
+			transform.Translate(new Vector3(0,0,2 * Time.deltaTime));
+			myAnim.SetTrigger("WALK_FORWARD");
+		}
+		if (Input.GetKey (KeyCode.LeftArrow)&& canMove==true) {
+			transform.Translate(new Vector3(0,0,-2 * Time.deltaTime));
+			myAnim.SetTrigger("WALK_BACK");
+		}
+		if (Input.GetKey (KeyCode.UpArrow)&& canMove==true) {
+			myAnim.SetBool("Jumping",true);
+			transform.Translate (new Vector3(0,1,0));
+			Invoke("StopJumping",1);
+		}
+		if (Input.GetKeyDown (KeyCode.DownArrow) && canMove == true) {
+			myAnim.SetBool ("Crouching", true);
+		}
+		if (Input.GetKeyUp (KeyCode.DownArrow)){
+				Invoke ("StopCrouching",1);
+		}
+		if (Input.GetKeyDown ("a")&& canAttack==true) {
+			myAnim.SetTrigger ("Light_Punch");
+		}
+		if (Input.GetKey ("s")&& canAttack==true) {
+			myAnim.SetTrigger ("Med_Punch");
+		}
+		if (Input.GetKey ("d")&& canAttack==true) {
+			myAnim.SetTrigger ("Heavy_Punch");
+		}
+		if (Input.GetKey ("z")&& canAttack==true) {
+			myAnim.SetTrigger ("L_kick");
+		}
+		if (Input.GetKey ("x")&& canAttack==true) {
+			myAnim.SetTrigger ("M_kick");
+		}
+		if (Input.GetKey ("c")&& canAttack==true) {
+			myAnim.SetTrigger ("H_kick");
+		}
+	}
+	void StopJumping(){
+		myAnim.SetBool ("Jumping", false);
+	}
+		void StopCrouching(){
+			myAnim.SetBool("Crouching",false);
+		}
+	}
