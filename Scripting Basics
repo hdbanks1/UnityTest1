@@ -1,0 +1,42 @@
+// These lines represent a comment. Comments aren't visible when script runs & don't take action.//
+
+
+using UnityEngine;
+using System.Collections;
+using UnityEngine.UI;
+//  Up at the top of your script in Unity you'll see using [something or other]; these have coding examples and definitions used later in the code. UnityEngine.UI for example has definitions for anything UI related, health bars, timers etc. //
+
+public class Example: Monobehaviour{ 
+
+public int ExInt; //an int is a whole number. Can be best used to say how much HP, Mana, Ammo etc your character has.
+                    Either say here[int Health= 30;] or leave it without a number to write out later
+
+public float ExFloat;// a float is a decimal number. any numbers that are floats need an 'f' behind them. Ex 2.5f
+
+public bool ExBool=true//(or false);//  a boolean is true or false. if the bool is false by default its like a light switch being off. Find a condition  to set it to true. i.e Flipped a switch,now it's bool = true (light is on)
+
+public string "Hey";      A string is just words. Quote the words here or later in code to write something
+
+public GameObject ExObject; A GameObject is exactly that, an object in the game.It can be left public to add later during testing
+                            or coded in directly
+public Animator ExAnim; Name your animator whatever you decide, but you will need an animator to move your character instead of             
+                        them sliding around in T pose all day.
+//^ Up here you declare whatever you want. Imagine using this spot to say what speed your character moves at, their hp, attack damage, etc. It should also be used to attach Audio, Animator, and anything else. If declared up here you can later write in sound effects for different actions
+
+void Start(){ // The start of our actual file. The start functions happens the second the game runs
+} // if you want an object to do something only when IT comes alive instead of void Start(){ use void Awake(){
+
+void Update(){ 
+// Update is called every frame so this is where we'd put any button inputs, timers or actions we want to do in game. 
+ if(Input.GetKey("whatever key I want right here")){
+ Attack(); // To use a function we make just type the functions name and write (); afterwards
+  }
+} // Every { bracket needs a following } bracket at the very end of that section. If the error (unexpected end-of-file) shows up it means you have too few or too many } brackets at the end
+
+// A function is any word/set of words seen as void [some name here] (){} a function is really a set of instructions to do something. If I make an Attack() function I need to describe how I would attack. Should it make an object to throw at the enemy?
+Do an animation? move a certain distance?
+void Attack(){
+  Instantiate(ExObject); // Makes the Game Object we declared exist. 
+  Debug.Log("I attacked"); // Debug. Log doesn't really do anything we can see on screen but whatever I write in there will show 
+                              up in the console(Where we see our errors at the bottom of the screen)
+}
