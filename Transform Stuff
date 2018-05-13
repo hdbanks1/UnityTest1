@@ -1,0 +1,12 @@
+In our code "Transform" means anything that relates to where we or any object is. Transform defines your objects Scale, location and rotation. Use X, Y, and Z coordinates , X being left-right, Y being up-down, and Z being forward-back. If written in Update(){ without a reason like an input whatever transform done will happen forever without stopping or until the program freezes
+
+Translate will move anything you tell it. Or you can use TranslateTo 
+transform.Translate(0,0,1);
+
+transform.Rotate(45,0,0); 
+
+transform.localScale += new Vector3(0.1F, 0, 0); Transform is a little special. Transform by local scale. Vector3 just means            
+                                                 (x,y,z). Vector2 is just (x,y). Vector4 is unrelated and is for colors/shaders
+                                                 (Red,Green,Blue,Alpha) values
+                                                 
+For reference https://docs.unity3d.com/ScriptReference/Transform.html
