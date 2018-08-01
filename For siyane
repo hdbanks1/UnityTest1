@@ -1,0 +1,29 @@
+using UnityEngine;
+
+public class ScreamHead: Monobehaviour {
+public inputField mainInputField; //create an input field for our custom name
+public GameObject Beam; // well throw this object at people 
+public Text charName;
+Rigidbody rb;
+float FlightTime;
+int FlightEnergy;
+bool canFly;
+bool hasFlightEnergy;
+public void start(){
+mainInputField.text="What is your name...";
+hasFlightEnergy =false;//bool is true or false. have no energy at start. or if you should set it to true 
+FlightEnergy =2;
+}
+public void Awake(){
+charName.transform.position =new Vector3(x,y,z);
+}
+void Beam(){
+Instantiate(Beam, transform.position,transform.rotation); //trans.position is where we are,.rotation is where we're looking. this will spawn the object at both
+}
+public void Update(){
+if(Input.GetKeyDown(KeyCode.Space)){
+Beam();// use the beam function we make. itll be somewhere else
+{
+}
+}
+// testing to finish this.  more soon
