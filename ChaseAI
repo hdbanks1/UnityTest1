@@ -1,0 +1,7 @@
+public gameObject player; 
+gameObject mountainTop;
+
+ public void Start(){
+ transform.LookAt(player);
+ transform.translate(Vector3.forward * 5 * time.DeltaTime);
+ }}
