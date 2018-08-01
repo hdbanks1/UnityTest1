@@ -24,6 +24,8 @@ public void Update(){
 if(Input.GetKeyDown(KeyCode.Space)){
 Beam();// use the beam function we make. itll be somewhere else
 {
+if(FlightEnergy>=1 && canFly==true && (Input.GetKey(KeyCode.Ctrl)){
+rb.AddForce(Vector3.up*FlightTime,ForceMode.Acceleration);
 }
 }
 // testing to finish this.  more soon
