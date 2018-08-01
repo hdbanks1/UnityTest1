@@ -1,0 +1,16 @@
+public int moveSpeed;
+ParticleSystem wave; //a particle thing for when this hits someone
+public void Start(){
+transform.translate(Vector3.Forward*moveSpeed);
+}
+//If your GameObject starts to collide with another GameObject with a Collider
+    void OnCollisionEnter(Collision collision)
+    {
+    Destroy(gameObject); // destroy what we hit 
+        //Output the Collider's GameObject's name
+        Debug.Log(collision.collider.name);
+    }
+   void OnDestroy(){
+   wave.Play();// play this particular when this thing dies
+  }
+}
