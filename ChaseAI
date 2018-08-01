@@ -1,7 +1,17 @@
-public gameObject player; 
-gameObject mountainTop;
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
- public void Start(){
- transform.LookAt(player);
- transform.translate(Vector3.forward * 5 * time.DeltaTime);
- }}
+public class chase : MonoBehaviour {
+
+    public int speed=1;
+    public GameObject player;
+
+    void Update()
+    {
+        transform.LookAt(player.transform);
+        Vector3 localPosition = player.transform.position - transform.position;//player.transform is where the player is.the other is ai
+        localPosition = localPosition.normalized; // The normalized direction in LOCAL space
+        transform.Translate(localPosition.x * Time.deltaTime * speed, localPosition.y * Time.deltaTime * speed, localPosition.z * Time.deltaTime * speed);//move to where we are over time
+    }
+}
