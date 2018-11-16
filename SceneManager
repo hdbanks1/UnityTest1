@@ -1,5 +1,16 @@
 using UnityEngine.SceneMangaer;
+public Vector3 startPosition;
 //Start
-void LoadScene(){
+void Awake(){
+startPosition = transform.position;
+}
+void LoadNextScene(){// load the next scene
 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+}
+void LoadPrevScene(){//Go back a previous scene
+SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex-1);
+}
+void LoadSceneNamed{// load a specific scene by name
+SceneManager.LoadScene(scenename);// put the scene's actual name instead of scenename
+}
 }
