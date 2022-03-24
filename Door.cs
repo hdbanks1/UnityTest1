@@ -3,19 +3,44 @@ using UnityEngine;
 public class Door() {
     public bool isOpen
     bool isLocked;
-    Text lockMessage;
+    //Text lockMessage;
     public Animator doorAni;
+    bool needsRedKey,needsBlueKey,needsGreenKey;
 
     public void Awake() {
         doorAni = GetComponent < Animator > ();
         isLocked;
     }
-    public void Update {}
+    public void Update {
+        switch(isLocked){
+            case (needsGreenKey && player.hasGreenKey)
+                isLocked = false;
+                break;
+                case (needsRedKey && player.hasRedKey)
+                isLocked = false;
+                break;
+                case (needsBlueKey && player.hasBlueKey)
+                isLocked = false;
+                break;
+                case (needsBlueKey && player.!hasBlueKey)
+                isLocked;
+                break;
+                case (needsRedKey && player.!hasRedKey)
+                isLocked;
+                break;
+                case (needsGreenKey && player.!hasGreenKey)
+                isLocked;
+                break;
+                case (!needsGreenKey&&!needsRedKey&&!needsBlueKey)
+                isLocked=false;
+                default;
+            }
+        }
+    }
     public void OnTriggerEnter(collider other) {
         //collision with player trigger only
         if (isLocked) {
             //check if its locked
-            Text lockMessage = "Door is locked";
             Debug.Log("its locked here too, big dawg");
         }
         if (isLocked = false && isOpen = false;) {
